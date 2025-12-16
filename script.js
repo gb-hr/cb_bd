@@ -1,4 +1,4 @@
-const dataAlvo = new Date("2025-12-15T23:02:00");
+const dataAlvo = new Date("2025-12-15T23:10:00");
 
 const tempoEl = document.getElementById("tempo");
 const botao = document.getElementById("btnAcessar");
