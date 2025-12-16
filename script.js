@@ -1,19 +1,47 @@
-const dataAlvo = new Date("2025-12-15T23:59:00");
+const dataAlvo = new Date("2025-12-15T23:02:00");
 
-function atualizarCronometro() {
-    const data = new Date();
+const tempoEl = document.getElementById("tempo");
+const botao = document.getElementById("btnAcessar");
+const titulo = document.getElementById("titulo");
 
-    // Calcula a diferença
-    const diff = dataAlvo - data;
+let intervalo = null; // ✅ declarado antes
 
-    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const horasDiff = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutosDiff = Math.floor((diff / (1000 * 60)) % 60);
-    const segundosDiff = Math.floor((diff / 1000) % 60);
-
-    // Mostra no HTML
-    document.getElementById("tempo").innerText =
-        `${dias}d ${horasDiff}h ${minutosDiff}m ${segundosDiff}s`;
+function finalizar() {
+    titulo.style.display = "none";
+    tempoEl.innerText = "Feliz Aniversário!";
+    botao.disabled = false;
 }
 
-setInterval(atualizarCronometro, 1000);
+function atualizarCronometro() {
+    const agora = new Date();
+    const diff = dataAlvo - agora;
+
+    // Se já acabou (inclusive após atualizar)
+    if (diff <= 0) {
+        finalizar();
+
+        if (intervalo) {
+            clearInterval(intervalo);
+        }
+
+        return;
+    }
+
+    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutos = Math.floor((diff / (1000 * 60)) % 60);
+    const segundos = Math.floor((diff / 1000) % 60);
+
+    tempoEl.innerText = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+}
+
+// Executa ao carregar a página
+atualizarCronometro();
+
+// Inicia o intervalo DEPOIS
+intervalo = setInterval(atualizarCronometro, 1000);
+
+// Botão sempre funcional
+botao.addEventListener("click", () => {
+    window.location.href = "home.html";
+});

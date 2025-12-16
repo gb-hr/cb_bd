@@ -1,29 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HB</title>
+
     <link rel="icon" type="image/png" href="img/image.png">
     <link rel="stylesheet" href="style.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <div class="container">
-        <div class="title">AGUARDE PARA VER...</div>
+        <div class="title" id="titulo">AGUARDE PARA VER...</div>
 
         <div id="tempo" class="tempo"></div>
 
+        <button id="btnAcessar" class="botao" disabled>
+            Mostrar
+        </button>
+
         <div class="container_video">
-            <video id="video" class="video" controls>
+            <video class="video" controls>
                 <source src="img/video.mp4" type="video/mp4">
             </video>
         </div>
     </div>
 
-    <script type="module" src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

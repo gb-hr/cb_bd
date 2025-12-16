@@ -1,61 +1,64 @@
-.fjalla-one-regular {
-  font-family: "Fjalla One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Fjalla One", sans-serif;
 }
 
-* {
-    padding: 0;
-    margin: 0;
+body {
     background-color: #101c3a;
-    font-family: "Fjalla One", sans-serif;
     width: 100vw;
     height: 100vh;
 }
 
 .container {
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.8rem; /* organiza o espaçamento */
+    text-align: center;
 }
 
 .title {
     color: #f2deb0;
     font-size: 2rem;
-    height: 10vh;
-    width: 100vw;
-    margin-top: 10vh;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    /* background-color: aliceblue; */
 }
 
 .tempo {
-    font-size: 4rem;
     color: #f2deb0;
-    height: 10vh;
-    width: 100vw;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    /* background-color: aqua; */
+    font-size: 3.5rem;
+    transition: 0.4s ease;
+}
+
+.botao {
+    padding: 0.8rem 2.5rem;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    border: none;
+    background-color: #f2deb0;
+    color: #101c3a;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: 0.3s;
+}
+
+.botao:enabled {
+    opacity: 1;
+}
+
+.botao:enabled:hover {
+    transform: scale(1.05);
 }
 
 .container_video {
-    width: 100vw;
-    height: 40vh;
-    margin-top: 1vh;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    /* background-color: bisque; */
+    margin-top: 1rem;
 }
 
 .video {
-    width: 250px;
-    height: 250px;
-    align-items: center;
-    display: flex;
-    justify-content: center;
+    width: 240px;
+    height: 240px;
+    border-radius: 12px;
 }

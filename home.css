@@ -1,0 +1,121 @@
+/* RESET E TIPOGRAFIA */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Fjalla One", sans-serif;
+}
+
+body {
+    background-color: #101c3a;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    padding: 0 1rem;
+}
+
+/* HEADER E FOOTER FIXOS */
+header.cabecalho,
+footer.rodape {
+    width: 100%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+/* CARROSSEL */
+.carousel {
+    display: flex;
+    width: fit-content;
+    animation: scroll 90s linear infinite;
+}
+
+.carousel img {
+    width: 100%;
+    max-width: 1280px;
+    aspect-ratio: 1280 / 200;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* MAIN CENTRAL COM GRADIENTE ANIMADO */
+main.text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 1rem;
+    color: #f2deb0;
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 1.4rem;
+    opacity: 0;
+    animation: fadeIn 1.5s forwards 0.5s;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    background: linear-gradient(
+        0deg,
+        rgba(16,28,58,0.9) 0%,
+        rgba(16,28,58,0.7) 50%,
+        rgba(16,28,58,0.9) 100%
+    );
+    background-size: 400% 400%;
+    animation: fadeIn 1.5s forwards 0.5s, gradientMove 20s ease infinite;
+}
+
+/* FADE-IN */
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* GRADIENTE ANIMADO */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* POESIA */
+.poesia p {
+    margin-bottom: 2rem;
+    font-size: 1.3rem;
+    text-align: left;
+    font-family: "Caveat", cursive;
+}
+
+/* PARABÉNS */
+.parabens {
+    width: 100%;
+}
+
+.parabens p {
+    font-family: "Fjalla One", sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: justify;
+    margin: 0 0 1rem 0;
+}
+
+/* RESPONSIVIDADE MOBILE */
+@media (max-width: 768px) {
+    main.text {
+        font-size: 1rem;
+        max-width: 95%;
+        padding: 1.5rem 1rem;
+    }
+
+    .poesia p,
+    .parabens p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .carousel {
+        animation-duration: 60s;
+    }
+}
